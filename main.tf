@@ -9,13 +9,14 @@ resource "aws_vpc" "vpc" {
 
 # Create Subnets using for_each
 resource "aws_subnet" "subnet" {
-  for_each = toset(var.vpc_subnets)
+  for_each = var.vpc_subnets
 
   vpc_id     = aws_vpc.vpc.id
-  cidr_block = each.value
+  cidr_block = each.value.cidr_block
+  availability_zone = each.value.az
 
   tags = {
-    Name = "Subnet-${each.value}"
+    Name = "Subnet-${each.value.name}"
   }
 }
 

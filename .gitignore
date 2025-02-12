@@ -15,8 +15,7 @@ crash.log
 .terraform/
 
 # Ignore sensitive Terraform variables file (Optional)
-terraform.tfvars
-terraform.tfvars.json
+
 
 # Ignore editor-specific files
 .vscode/

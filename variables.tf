@@ -8,7 +8,11 @@ variable "vpc_cidr" {
 # Subnet CIDR Blocks
 variable "vpc_subnets" {
   description = "List of CIDR blocks for subnets"
-  type        = list(string)
+   type = map(object({
+    name       = string
+    cidr_block = string
+    az         = string
+  }))
 
 }
 
